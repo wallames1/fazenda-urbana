@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Home</title>
+    <link rel="stylesheet" href="styleslogin.css">
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="sidebar">
+    <nav class="sidebar">
+      <div class="logo">
+          <img src="logo.png" alt="Logo do Site" width="100px">
+      </div>
+      <ul>
+          <li><a href="/inicio.html"><i class="fas fa-home"></i> Início</a></li>
+          <li><a href="/plantacoes.html"><i class="fas fa-seedling"></i> Plantações</a></li>
+<!--<li><a href="/desempenho.html"><i class="fas fa-chart-line"></i> Desempenho</a></li>-->          <li><a href="/configuracao.html"><i class="fas fa-cog"></i> Config</a></li>
+      </ul>
+    </nav>
+  </div>
+  
+  <div class="content">
+    <div class="content-top">
+      <div class="container">
+          <div id="weather-data" class="hide">
+              <h2><i class="fa-solid fa-location-dot"></i> <span id="city"></span></h2>
+              <p id="temperature"><span></span>&deg;C</p>
+              <div id="description-container">
+                <p id="description"></p>
+                <img id="weather-icon" src="" alt="Condições atuais">
+              </div>
+              <div id="details-container">
+                <p id="humidity"><i class="fa-solid fa-droplet"></i> <span></span></p>
+                <p id="wind"><i class="fa-solid fa-wind"></i> <span></span></p>
+              </div>
+          </div>
+          <div id="error-message" class="hide">
+              <p>Não foi possível encontrar o clima de uma cidade com este nome.</p>
+          </div>
+          <div id="loader" class="hide">
+              <i class="fa-solid fa-spinner"></i>
+          </div>
+      </div>
+    </div>
+
+    <div class="content-bottom">
+      <!-- Seção de Fonte de Alimentação -->
+      <div class="box" id="power-source">
+          <h2>Fonte de Alimentação</h2>
+          <p id="power-status">Status: <span>Carregando...</span></p>
+          <p id="battery-level">Nível de Bateria: <span>--%</span></p>
+      </div>
+
+      <!-- Seção de Histórico -->
+      <div class="box" id="history">
+          <h2>Histórico</h2>
+          <ul id="weather-history">
+              <li>Carregando histórico...</li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

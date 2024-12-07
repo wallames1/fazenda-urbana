@@ -1,0 +1,841 @@
+/*39d0ad6c2ebf37c0e4884379a44540e1
+https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=*/
+
+/* Define o fundo da tela com uma imagem de fazenda */
+*{
+    font-family: 'Montserrat', sans-serif; /* Usando a fonte Montserrat */;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex; /* Flexbox para organizar a navbar e o conteúdo */
+    height: 100vh; /* Ocupa toda a altura da tela */
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('fazendabackground.jpg') no-repeat center center fixed;
+    background-size: cover;
+    z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo principal */
+    min-height: 100vh;
+}
+
+.logo {
+    padding: 0; /* Remove qualquer padding extra */
+    margin-bottom: 20px; /* Espaço entre a logo e o menu */
+    text-align: center;
+}
+
+.logo img {
+    max-width: 100px; /* Controle do tamanho da logo */
+    border-radius: 20px;
+}
+
+
+.h1-logo {
+    color: white;
+}
+
+header {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cadastrar {
+    border: 1px solid black;
+    background-color: #0056b3;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+h1 {
+    margin: 2px 0;
+    color: black;
+}
+/*TELA DE LOGIN*/
+.background-image {
+margin: auto;
+   
+}
+.login-container {
+    background: url('folia.png');
+    width: 350px;
+    padding: 20px;
+    margin: 20px auto;  
+    text-align: center;
+    border-radius: 30px 100px;
+    box-shadow: rgba(0, 0, 0, 0.808) 10px 10px 10px;
+}
+.h1-logo{
+    color:black;
+    
+}
+.esqueci-senha{
+    color: white;
+}
+h2 {
+    margin-bottom: 20px;
+}
+form {
+    display: flex;
+    flex-direction: column;    
+}
+label {
+    display: block; 
+    text-align: left; 
+    margin-bottom: 1px; 
+    font-size: 20px;
+}
+input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+.label {
+    margin-left: 3px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 16px;
+    width: 100;
+    margin-left: 10px;
+}
+
+a {
+    align-items: right;
+}
+
+button:hover {
+    background-color: #007bff;
+}
+
+/* Navbar */
+.sidebar {
+    position: fixed; /* Mantém a sidebar fixa no lado esquerdo */
+    top: 0; /* Começa do topo da página */
+    left: 0;
+    width: 220px;
+    height: 100vh; /* Altura completa da viewport */
+    background: linear-gradient(135deg, #3b4a3d, #2e3730);
+    background-image: url('folia.png');
+    background-size: cover;
+    color: rgb(255, 21, 21);
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0; /* Remove padding interno */
+    margin: 0; /* Remove margem externa */
+    width: 100%;
+}
+
+.sidebar li {
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Garante que os ícones e texto comecem à esquerda */
+    padding: 12px 15px;
+    transition: background 0.3s;
+    border-radius: 5px;
+}
+
+
+.sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar a i {
+    margin-right: 10px; /* Espaço entre o ícone e o texto */
+    font-size: 19px;
+    min-width: 24px; /* Garante um espaço fixo para os ícones */
+    text-align: center; /* Centraliza o ícone no espaço definido */
+    color: #fff;
+}
+
+
+.hide {
+    display: none;
+}
+
+/*API CLIMA*/
+#description-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.6rem 0;
+}
+
+#details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#details-container #humidity {
+    border-right: 1px solid #fff;
+    margin: 0.6rem;
+}
+
+
+.content-top {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 30vh; /* Ocupa toda a altura da tela */
+    margin: 20px;
+}
+
+#weather-data {
+    background: rgba(255, 255, 255, 0.85);
+    width: 400px;
+    padding: 5px;
+    
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex; /* Alterado de block para flex */
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+#city {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#temperature {
+    font-size: 1.8em;
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+#description {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+#details-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#humidity, #wind {
+    font-size: 0.9em;
+    color: #333;
+}
+
+#details-container #humidity, #details-container #wind {
+    margin: 0;
+    padding: 0 5px;
+}
+
+/* Estilização do Conteúdo */
+
+.content {
+    flex: 1; /* O conteúdo ocupa o espaço restante */
+    padding: 20px;
+    display: flex; /* Flexbox para organizar os elementos */
+    flex-direction: column; /* Coluna para conteúdo interno */
+    margin: 10px;
+    
+}
+
+/* Resto do seu CSS... */
+
+
+.content-top {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.box {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.box h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: #2c3e50;
+}
+/*estilos adicionar produto*/
+body {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+}
+#sidebar {
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    height: 100vh;
+    padding: 20px;
+}
+#addProductBtn {
+    align-self: flex-end;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+#productFormContainer {
+    display: none;
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+.form-group {
+    margin-bottom: 10px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+.product-card {
+    background: #fff;
+    border: 1px solid #0f0b0b;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    padding-top: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+.product-card:hover{
+    border: 1px solid black;
+  transform: scale(1.05);
+}
+
+
+.product-card img {
+    max-width: 90%;
+    height: 175px;
+    border-radius: 4px;
+}
+
+
+/* Estilo para a grade de produtos do inicio */
+.product-grid-carrinho {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Colunas responsivas */
+    gap: 20px; /* Espaçamento entre os produtos */
+    padding: 20px;
+    margin: 20px auto; /* Centraliza a grid na página */
+    max-width: 1200px; /* Largura máxima da grid */
+    margin-top: 80px; /* Ajuste para evitar sobreposição com a navbar */
+}
+.product-grid-carrinho .product-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 250px;
+}
+.product-grid-carrinho .product-card img{
+    width: 100px;
+    height: 90px;
+}
+
+.delete-btn {
+position: absolute;
+
+top: 10px;
+right: 14px;
+background: white;
+color: red;
+border: none;
+border-radius: 50%;
+width: 24px;
+height: 24px;
+cursor: pointer;
+font-weight: bold;
+font-size: 24px;
+line-height: 8px;
+text-align: center;
+}
+.delete-btn:hover {
+ background: white;
+    }
+.quantity-input{
+    background: #007bff;
+    color: white;
+}
+/*estilo para de de configuraçao*/
+
+.options-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.option {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f3f3;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.option:hover {
+    background-color: #e0e0e0;
+}
+
+.option i {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.option p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* radio do cadastro*/
+/* From Uiverse.io by Na3ar-17 */ 
+.radio-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .radio-input * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .radio-input label {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0px 20px;
+    width: 220px;
+    cursor: pointer;
+    height: 50px;
+    position: relative;
+  }
+  
+  .radio-input label::before {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 220px;
+    height: 45px;
+    z-index: -1;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border-radius: 10px;
+    border: 2px solid transparent;
+  }
+  .radio-input label:hover::before {
+    transition: all 0.2s ease;
+    background-color: #2a2e3c;
+    
+  }
+  
+  .radio-input .label:has(input:checked)::before {
+    background-color: #2d3750;
+    border-color: #435dd8;
+    height: 50px;
+  }
+  .radio-input .label .text {
+    color: #fff;
+  }
+  
+  .radio-input .label input[type="radio"] {
+    background-color: #202030;
+    appearance: none;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .radio-input .label input[type="radio"]:checked {
+    background-color: #435dd8;
+    -webkit-animation: puls 0.7s forwards;
+    animation: pulse 0.7s forwards;
+  }
+  
+  .radio-input .label input[type="radio"]:before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    transition: all 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-color: #fff;
+    transform: scale(0);
+  }
+  
+  .radio-input .label input[type="radio"]:checked::before {
+    transform: scale(1);
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+  }
+  /* input de login*/
+  /* From Uiverse.io by mrhyddenn */ 
+.form__group {
+    position: relative;
+    padding: 25px 0 0;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .form__field {
+    font-family: inherit;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 17px;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  
+  .form__field::placeholder {
+    color: transparent;
+  }
+  
+  .form__field:placeholder-shown ~ .form__label {
+    font-size: 17px;
+    cursor: text;
+    top: 20px;
+  }
+  
+  .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 17px;
+    color: #fff;
+    pointer-events: none;
+  }
+  
+  .form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #116399, #38caef);
+    border-image-slice: 1;
+  }
+  
+  .form__field:focus ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 17px;
+    color: #38caef;
+    font-weight: 700;
+  }
+  
+  /* reset input */
+  .form__field:required, .form__field:invalid {
+    box-shadow: none;
+  }
+  .form__field:valid {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #116399, #38caef);
+    border-image-slice: 1;
+}
+@media screen and (max-width: 768px) {
+    .content {
+    
+        margin-right: 12px;
+        margin-left: 190px;
+    }
+
+    /* Ajusta a tabela para telas pequenas */
+    .product-table {
+        max-width: 100%; /* Garante que a tabela não ultrapasse a largura da tela */
+    }
+
+    .table {
+        width:80%; /* A tabela deve ocupar toda a largura disponível */
+    }
+}
+/* Sidebar responsiva para telas pequenas */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        position: absolute; /* Mantém a sidebar fixa no lado esquerdo */
+        top: 0; /* Começa do topo da página */
+        left: 0;
+        width: 182px;
+        height: 150vh; /* Altura completa da viewport */
+        background: linear-gradient(135deg, #3b4a3d, #2e3730);
+        background-image: url('folia.png');
+        background-size: cover;
+        color: rgb(255, 21, 21);
+        padding-top: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 3;
+    }
+    
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0; /* Remove padding interno */
+        margin: 0; /* Remove margem externa */
+        width: 100%;
+    }
+    
+    .sidebar li {
+        margin-bottom: 15px;
+    }
+    
+    .sidebar a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Garante que os ícones e texto comecem à esquerda */
+        padding: 12px 15px;
+        transition: background 0.3s;
+        border-radius: 5px;
+    }
+    
+    
+    .sidebar a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .sidebar a i {
+        margin-right: 10px; /* Espaço entre o ícone e o texto */
+        font-size: 19px;
+        min-width: 24px; /* Garante um espaço fixo para os ícones */
+        text-align: center; /* Centraliza o ícone no espaço definido */
+        color: #fff;
+    }
+    
+    
+   
+
+/* Conteúdo da página */
+.product-grid-carrinho {
+    margin-left: 25%; /* Espaço para a sidebar à esquerda */
+    width: 100%;
+    gap: 0px;
+    margin-top: 10px;
+    font-size: 13px;
+}
+button{
+    font-size: 8px;
+    margin: 0px;
+    padding: 5px;
+}
+input{
+    font-size: 6px;
+}
+.product-card{
+    
+    width: 150px;
+}
+
+}
+/* Responsividade para iPads e tablets (481px - 768px) */
+@media screen and (max-width: 481px) {
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    /* Sidebar */
+    .sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px; /* Sidebar mais estreita */
+        height: 150%;
+        background-image: url('folia.png');
+        background-size: cover;
+        color: rgb(255, 21, 21);
+        padding-top: 10px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 3;
+    }
+    
+    /* Lista da Sidebar */
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+    
+    /* Itens da Sidebar */
+    .sidebar li {
+        margin-bottom: 10px;
+    }
+    .sidebar img{
+        width: 70px;
+
+    }
+    
+    /* Links na Sidebar (somente ícones) */
+    .sidebar a {
+        text-decoration: none;
+        color: white;
+        font-size: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+
+    /* Conteúdo da página */
+    .product-grid-carrinho {
+        margin-left: 70px; /* Ajuste para a sidebar estreita */
+        padding: 10px;
+        width: 3000px; /* Ajuste de largura para caber na tela */
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        margin-left: 50px;
+        flex-wrap: wrap;
+    }
+
+    /* Ajuste dos cartões de produtos */
+    .product-card {
+        width: 100px; /* Reduz a largura do cartão */
+        
+        padding: 0px;
+        font-size: 0.8rem; /* Reduz o tamanho da fonte dentro do card */
+        font-size: 10px;
+        margin: 1px;
+    }
+    .content{
+       margin-left: 90px;
+    }
+    body{
+        width: 80%;
+    }
+    #addProductBtn{
+        margin-right: 140px;
+    }
+    button{
+        font-size: 8px;
+        margin: 0%;
+        padding: 6%;
+    }
+    input{
+        font-size: 6px;
+    }
+
+    /*TELA DE LOGIN*/
+
+    .background-image{
+        width: 90%;  /* Tamanho da div, pode ser ajustado */
+        max-width: 500px; /* Tamanho máximo para telas grandes */
+            
+    }
+    header{
+        margin-left: 110px;
+    }
+    .h1-logo{
+        color:black;
+        
+    }
+    .esqueci-senha{
+        color: white;
+    }
+
+    /*CONFIGURAÇAO*/
+    #div-config{
+        max-width: 250px;
+    }
+}

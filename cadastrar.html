@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Fazenda Urbana</title>
+    <link rel="stylesheet" href="styleslogin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-image">
+        <header>
+            <img src="logo.png" alt="Logo Fazenda Urbana" class="logo">
+            <h1 class="h1-logo">FAZENDA URBANA</h1>
+        </header>
+        <div class="login-container">
+            <h2>Cadastro</h2>
+            <form id="signupForm">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+                
+                <label for="confirmar-senha">Confirmar Senha:</label>
+                <input type="password" id="confirmar-senha" name="confirmar-senha" required>
+                
+                <!-- Seleção de papel do usuário -->
+                <label>Papel:</label>              
+                <div class="radio-input">
+
+                    <label class="label">
+                      <input type="radio" id="roleAdmin" checked="" name="role" value="admin" />
+                      <p class="text">Admin</p>
+                    </label>
+
+                    <label class="label">
+                      <input type="radio" id="roleCliente" name="role" value="cliente" />
+                      <p class="text">Cliente</p>
+                    </label>
+                
+                  </div>
+
+                <button type="submit">Cadastrar</button>
+                <button type="button" class="cadastrar" onclick="location.href='login.html'">Voltar</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+<script src="cadastro.js" defer></script>
+</html>

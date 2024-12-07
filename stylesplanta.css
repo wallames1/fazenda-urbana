@@ -1,0 +1,329 @@
+/* Configuração básica */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif; /* Usando a fonte Montserrat */;
+    
+}
+
+body, html {
+    height: 100%;
+    
+    overflow: hidden;
+}
+
+/* Contêiner principal */
+.main-content {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Barra lateral com fundo de folha */
+.sidebar {
+    position: fixed; /* Mantém a sidebar fixa no lado esquerdo */
+    top: 0; /* Começa do topo da página */
+    left: 0;
+    width: 220px;
+    height: 100vh; /* Altura completa da viewport */
+    background: linear-gradient(135deg, #3b4a3d, #2e3730);
+    background-image: url('folia.png');
+    background-size: cover;
+    color: rgb(255, 21, 21);
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0; /* Remove padding interno */
+    margin: 0; /* Remove margem externa */
+    width: 100%;
+}
+
+.sidebar li {
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Garante que os ícones e texto comecem à esquerda */
+    padding: 12px 15px;
+    transition: background 0.3s;
+    border-radius: 5px;
+}
+
+
+.sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar a i {
+    margin-right: 10px; /* Espaço entre o ícone e o texto */
+    font-size: 19px;
+    min-width: 24px; /* Garante um espaço fixo para os ícones */
+    text-align: center; /* Centraliza o ícone no espaço definido */
+    color: #fff;
+}
+
+
+.logo {
+    padding: 0; /* Remove qualquer padding extra */
+    margin-bottom: 20px; /* Espaço entre a logo e o menu */
+    text-align: center;
+}
+
+.logo img {
+    max-width: 100px; /* Controle do tamanho da logo */
+    border-radius: 20px;
+}
+
+
+/* Área dos gráficos com fundo de terra */
+.dashboard {
+    margin-left: 220px; /* Espaço para a sidebar */
+    padding: 40px;
+    width: calc(100% - 220px);
+    background: url('fazenda.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    max-height: 100vh;
+    position: relative;
+}   
+
+/* Gráfico grande na parte superior */
+.large-chart {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.925); /* Fundo com transparência */
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 2;
+}
+
+/* Gráficos pequenos na parte inferior */
+.small-charts {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    z-index: 2;
+}
+
+.small-chart {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.925); /* Fundo branco com transparência */
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 2;
+}
+
+.chart-container {
+    gap: 20px;
+    flex: 1;
+}
+@media screen and (max-width: 768px) {
+    .sidebar {
+        position: absolute; /* Mantém a sidebar fixa no lado esquerdo */
+        top: 0; /* Começa do topo da página */
+        left: 0;
+        width: 182px;
+        height: 150vh; /* Altura completa da viewport */
+        background: linear-gradient(135deg, #3b4a3d, #2e3730);
+        background-image: url('folia.png');
+        background-size: cover;
+        color: rgb(255, 21, 21);
+        padding-top: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 3;
+    }
+    
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0; /* Remove padding interno */
+        margin: 0; /* Remove margem externa */
+        width: 100%;
+    }
+    
+    .sidebar li {
+        margin-bottom: 15px;
+    }
+    
+    .sidebar a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Garante que os ícones e texto comecem à esquerda */
+        padding: 12px 15px;
+        transition: background 0.3s;
+        border-radius: 5px;
+    }
+    
+    
+    .sidebar a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .sidebar a i {
+        margin-right: 10px; /* Espaço entre o ícone e o texto */
+        font-size: 19px;
+        min-width: 24px; /* Garante um espaço fixo para os ícones */
+        text-align: center; /* Centraliza o ícone no espaço definido */
+        color: #fff;
+    }
+    
+    
+   
+
+/* Conteúdo da página */
+.product-grid-carrinho {
+    margin-left: 25%; /* Espaço para a sidebar à esquerda */
+    width: 100%;
+    gap: 0px;
+    margin-top: 10px;
+    font-size: 13px;
+}
+button{
+    font-size: 8px;
+    margin: 0px;
+    padding: 5px;
+}
+input{
+    font-size: 6px;
+}
+.product-card{
+    
+    width: 150px;
+}
+
+}
+/* Responsividade para iPads e tablets (481px - 768px) */
+@media screen and (max-width: 481px) {
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    /* Sidebar */
+    .sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px; /* Sidebar mais estreita */
+        height: 150%;
+        background-image: url('folia.png');
+        background-size: cover;
+        color: rgb(255, 21, 21);
+        padding-top: 10px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 3;
+    }
+    
+    /* Lista da Sidebar */
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+    
+    /* Itens da Sidebar */
+    .sidebar li {
+        margin-bottom: 10px;
+    }
+    .sidebar img{
+        width: 70px;
+
+    }
+    
+    /* Links na Sidebar (somente ícones) */
+    .sidebar a {
+        text-decoration: none;
+        color: white;
+        font-size: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0;
+    }
+    .content{
+        margin-left: 90px;
+     }
+     body{
+         width: 100%;
+     }
+     .dashboard {
+        display: flex;
+        flex-direction: column; /* Coloca os itens em uma coluna (gráfico grande em cima e gráficos pequenos embaixo) */
+        gap: 20px; /* Espaçamento entre os elementos */
+        padding: 20px;
+        background-color: #f5f5f5;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 100px;
+        margin-right: 0px;
+        width: 400px;
+    }
+    
+    .blur-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5); /* Efeito de blur */
+        z-index: -1; /* Coloca o background atrás de tudo */
+    }
+    
+    /* Estilo do gráfico grande */
+    .chart.large-chart {
+        width: 280px;
+        height: 700px; /* Tamanho fixo para o gráfico grande */
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    canvas {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    /* Estilos para os gráficos pequenos */
+    .small-charts {
+        display: flex;
+        gap: 20px; /* Espaçamento entre os gráficos pequenos */
+        flex-direction: column;
+    }
+    
+    .chart.small-chart {
+        width: 280px; /* Cada gráfico pequeno ocupa 48% da largura da tela */
+        height: 200px; /* Altura fixa para os gráficos pequenos */
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

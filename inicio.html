@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Home</title>
+    <link rel="stylesheet" href="styleslogin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <!-- Firebase SDK (para Firestore e Authentication) -->
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
+
+</head>
+<body>
+    <div id="sidebar">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="logo.png" alt="Logo do Site" width="100px">
+            </div>
+            <ul>
+                <li ><a href="/inicio.html"><i class="fas fa-home"></i> Início</a></li>
+                <li id="plantacoes-nav"><a href="/plantacoes.html"><i class="fas fa-seedling"></i> Plantações</a></li>
+<!--<li><a href="/desempenho.html"><i class="fas fa-chart-line"></i> Desempenho</a></li>-->                <li><a href="/configuracao.html"><i class="fas fa-cog"></i> Config</a></li>
+                <li id="tabela-nav"><a href="/tabela.html"><i class="fas fa-table"></i> Tabela</a></li>
+                <li><a href="/carrinho.html"><i class="fas fa-shopping-cart"></i> Carrinho</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Grid de produtos -->
+    <div class="product-grid-carrinho" id="productGrid"></div>
+
+    <script type="module" src="inicio.js"></script>
+</body>
+</html>

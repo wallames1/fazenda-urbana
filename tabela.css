@@ -1,0 +1,295 @@
+/* Estilo da página */
+* {
+    font-family: 'Montserrat', sans-serif; /* Usando a fonte Montserrat */
+    box-sizing: border-box; /* Adiciona padding e border ao calcular a largura/altura */
+}
+h2{
+    color: #fff;
+}
+body {
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* A altura deve ser 100% da tela */
+    background-image: url('fazendabackground.jpg');
+    background-size: cover; /* Cobre toda a tela com a imagem */
+    background-attachment: fixed; /* Fixa o fundo enquanto rola a página */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Garante que o conteúdo esteja alinhado no topo */
+}
+img{
+    border-radius: 20px;
+}
+
+/* Barra lateral com fundo de folha */
+.sidebar {
+    position: fixed; /* Mantém a sidebar fixa no lado esquerdo */
+    top: 0; /* Começa do topo da página */
+    left: 0;
+    width: 220px;
+    height: 100vh; /* Altura completa da viewport */
+    background: linear-gradient(135deg, #3b4a3d, #2e3730);
+    background-image: url('folia.png');
+    background-size: cover;
+    color: rgb(255, 21, 21);
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0; /* Remove padding interno */
+    margin: 0; /* Remove margem externa */
+    width: 100%;
+}
+
+.sidebar li {
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Garante que os ícones e texto comecem à esquerda */
+    padding: 12px 15px;
+    transition: background 0.3s;
+    border-radius: 5px;
+}
+
+
+.sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar a i {
+    margin-right: 10px; /* Espaço entre o ícone e o texto */
+    font-size: 19px;
+    min-width: 24px; /* Garante um espaço fixo para os ícones */
+    text-align: center; /* Centraliza o ícone no espaço definido */
+    color: #fff;
+}
+
+
+.logo {
+    padding: 0; /* Remove qualquer padding extra */
+    margin-bottom: 20px; /* Espaço entre a logo e o menu */
+    text-align: center;
+}
+
+.logo img {
+    max-width: 100px; /* Controle do tamanho da logo */
+    border-radius: 20px;
+}
+
+
+
+
+/* Área de Conteúdo */
+.content {
+    margin-left: 240px; /* Ajuste para a sidebar maior */
+    padding: 20px;
+    max-width: 1000px;
+    width: 100%;
+    
+}
+
+/* Tabela de Produtos */
+.product-table {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 4 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Permite scroll horizontal */
+    max-width: 100%; /* Limita a tabela ao tamanho da tela */
+}
+
+/* Tabela Responsiva */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ajusta as células para que elas se ajustem melhor */
+}
+
+.table th, .table td {
+    padding: 3px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.table th {
+    background-color: #388E3C;
+    color: #fff;
+    font-weight: bold;
+}
+
+.table td {
+    background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+    background-color: #e8f5e9;
+    transition: background-color 0.3s;
+}
+
+/* Adicionar scroll vertical à tabela se necessário */
+.table-container {
+    max-height: 400px; /* Defina a altura máxima da tabela */
+    overflow-y: auto; /* Permite scroll vertical */
+}
+
+/* Responsividade da página */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        position: absolute; /* Mantém a sidebar fixa no lado esquerdo */
+        top: 0; /* Começa do topo da página */
+        left: 0;
+        width: 182px;
+        height: 150%;
+        background: linear-gradient(135deg, #3b4a3d, #2e3730);
+        background-image: url('folia.png');
+        background-size: cover;
+        color: rgb(255, 21, 21);
+        padding-top: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 3;
+    }
+    
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0; /* Remove padding interno */
+        margin: 0; /* Remove margem externa */
+        width: 100%;
+    }
+    
+    .sidebar li {
+        margin-bottom: 15px;
+    }
+    
+    .sidebar a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Garante que os ícones e texto comecem à esquerda */
+        padding: 12px 15px;
+        transition: background 0.3s;
+        border-radius: 5px;
+    }
+    
+    
+    .sidebar a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .sidebar a i {
+        margin-right: 10px; /* Espaço entre o ícone e o texto */
+        font-size: 19px;
+        min-width: 24px; /* Garante um espaço fixo para os ícones */
+        text-align: center; /* Centraliza o ícone no espaço definido */
+        color: #fff;
+    }
+    .content{
+        width: 500px;
+        margin-left: 200px;
+    }
+    th{
+        font-size: 18px;
+    }
+    td{
+        font-size: 16px;
+    }
+
+}
+/* Responsividade para iPads e tablets (481px - 768px) */
+@media screen and (max-width: 481px) {
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    /* Sidebar */
+    .sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px; /* Sidebar mais estreita */
+        height: 150%;
+        background-image: url('folia.png');
+        background-size: cover;
+        color: rgb(255, 21, 21);
+        padding-top: 10px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 3;
+    }
+    
+    /* Lista da Sidebar */
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+    
+    /* Itens da Sidebar */
+    .sidebar li {
+        margin-bottom: 10px;
+    }
+    .sidebar img{
+        width: 70px;
+
+    }
+    
+    /* Links na Sidebar (somente ícones) */
+    .sidebar a {
+        text-decoration: none;
+        color: white;
+        font-size: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+
+    /* Conteúdo da página */
+    .product-grid-carrinho {
+        margin-left: 70px; /* Ajuste para a sidebar estreita */
+        padding: 10px;
+        width: 3000px; /* Ajuste de largura para caber na tela */
+    }
+
+    /* Ajuste dos cartões de produtos */
+    .product-card {
+        width: 100px; /* Reduz a largura do cartão */
+        
+        padding: 0px;
+        font-size: 0.8rem; /* Reduz o tamanho da fonte dentro do card */
+        font-size: 10px;
+        margin: 1px;
+    }
+    .content{
+        width: 280px;
+        margin-left: 90px;
+    }
+    th{
+        font-size: 12px;
+    }
+    td{
+        font-size: 12px;
+    }
+}
